@@ -20,7 +20,8 @@ class PrototypesController < ApplicationController
   end
 
   def show #showアクションにインスタンス変数@prototype定義
-    @prototype = Prototype.find(params[:id])#pathパラメータで送信されるID値で特定のオブジェクトを取得し@prototypeに代入
+    @prototype = Prototype.includes(:user).find(params[:id])
+    #@prototype = Prototype.find(params[:id])#pathパラメータで送信されるID値で特定のオブジェクトを取得し@prototypeに代入
   end
 
 

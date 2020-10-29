@@ -1,15 +1,15 @@
 <main class="main">
   <div class="inner">
     <%# ログインしているときは以下を表示する %>
-    <%# if user_signed_in? %>
+    <% if user_signed_in? && current_user.id == @prototype_id %>
        <div class="greeting">
          <i> こんにちは、</i>
          <%= link_to current_user.name + "さん", root_path, class: :greeting__link%>
        </div> 
     <%# // ログインしているときは上記を表示する %>
-    <%# else %>
-    <div class="card__wrapper">
-     <%# end %>
+    <% else %>
+      <div class="card__wrapper">
+    <% end %>
       <%= render partial: 'prototype' , collection: @prototype %>
     </div>
   </div>
