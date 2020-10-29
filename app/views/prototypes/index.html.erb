@@ -10,8 +10,7 @@
     <%# else %>
     <div class="card__wrapper">
      <%# end %>
-      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
-      <%#= yield %>
+      <%= render partial: 'prototype' , collection: @prototype %>
     </div>
   </div>
 </main>
