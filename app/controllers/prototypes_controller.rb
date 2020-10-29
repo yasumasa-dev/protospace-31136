@@ -4,6 +4,12 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
+    prototype = Prototype.find(params[:id])
+    if prototype.destroy
+      redirect_to root_path
+      else
+      render :show
+      end
   end
 
   def new
@@ -24,6 +30,18 @@ class PrototypesController < ApplicationController
     #@prototype = Prototype.find(params[:id])#pathパラメータで送信されるID値で特定のオブジェクトを取得し@prototypeに代入
   end
 
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    prototype = Prototype.find(params[:id])
+    if prototype.update(prototype_params)  
+      redirect_to prototype_path  
+    else
+      render :edit
+    end
+  end
 
   private
 
