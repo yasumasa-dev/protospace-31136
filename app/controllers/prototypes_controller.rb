@@ -19,9 +19,14 @@ class PrototypesController < ApplicationController
     end
   end
 
+  def show #showアクションにインスタンス変数@prototype定義
+    @prototype = Prototype.find(params[:id])#pathパラメータで送信されるID値で特定のオブジェクトを取得し@prototypeに代入
+  end
+
+
   private
 
-  def prototype_params
+  def prototype_params #createアクションのバリデーション設定だっけ？
     params.require(:prototype).permit(:title, :catch_copy, :concept,:image).merge(user_id: current_user.id)
   end
 end
